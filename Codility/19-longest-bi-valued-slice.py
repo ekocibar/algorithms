@@ -31,9 +31,8 @@ def solution(A):
             max_slice_length = max(max_slice_length, current_length)
 
         elif (not (num in bi_elements)) and (len(bi_elements) == 2):
-            max_slice_length = max(max_slice_length, current_length)
-            current_length = consecutive_sequence + 1
             bi_elements = {A[i-1], num}
+            current_length = consecutive_sequence + 1
             consecutive_sequence = 1
 
         else:
