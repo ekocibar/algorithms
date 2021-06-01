@@ -27,13 +27,13 @@ Constraints:
 
 '''
 
-
+import math
 def containsDuplicate(nums) :
-    nums.sort()
-    for i in range(1, len(nums)):
-        if nums[i-1] == nums[i]:
-            return True
-    return False
+    results = []
+    for i in range(len(nums-1)):
+        for j in range(i+1,nums):
+            mult = math.prod(nums[i:j])
+            results.append(mult)
 
-
+    return max(results)
 containsDuplicate([1,3,5])
