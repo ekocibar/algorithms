@@ -55,3 +55,9 @@ def solution(A, K):
         temp_array[new_index] = A[index] # set value
 
     return temp_array
+
+def solution2(A, K):
+    if not A or not K: return A
+    length = len(A)
+    actual_rotation = K % length
+    return A[length - actual_rotation:] + A[:length - actual_rotation]

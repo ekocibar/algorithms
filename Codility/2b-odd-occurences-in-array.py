@@ -54,3 +54,21 @@ def solution(A):
             odd_element = key
 
     return odd_element
+
+
+from collections import defaultdict
+
+def solution2(A):
+    my_dictionary = defaultdict(int)
+    odd_element = -1
+
+    # create a hash table
+    for item in A:
+        my_dictionary[item] += 1
+
+    # find odd element
+    for key in my_dictionary:
+        if (my_dictionary[key] % 2 != 0):
+            odd_element = key
+
+    return odd_element

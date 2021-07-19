@@ -37,7 +37,7 @@ def solution(A, B, K):
     # because "A" is also divisble
     plus = 0
     if A % K == 0:
-        plus =1
+        plus = 1
 
     num_divisible = num_divisible + plus
 

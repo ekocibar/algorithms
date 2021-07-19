@@ -27,6 +27,7 @@ Write an efficient algorithm for the following assumptions:
         the elements of A are all distinct;
         each element of array A is an integer within the range [1..(N + 1)].
 '''
+# O(n)
 def solution(A):
     N = len(A)
     my_list = [0] * (N+2)
@@ -40,3 +41,10 @@ def solution(A):
             missing_element = index
 
     return missing_element
+
+# O(n) - short
+def solution2(A):
+    n = len(A) + 1
+    actual_sum = sum(A)
+    supposed_sum = (n*(n+1))//2
+    return supposed_sum - actual_sum

@@ -59,12 +59,12 @@ Write an efficient algorithm for the following assumptions:
 '''
 def solution(X, A):
     my_set = set()
-    for value in range(1, X+1):
-        my_set.add( value )
+    for num in range(1, X+1):
+        my_set.add(num)
 
-    for index in range(0, len(A) ):
+    for index in range(len(A)):
         if A[index] in my_set:
-            my_set.remove( A[index] )
+            my_set.remove(A[index])
         if my_set == set():
             return index
 

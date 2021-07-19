@@ -60,8 +60,8 @@ def solution(A):
 
     for i in range( len(A)-2 ):
 
-        average_len_2 = float((A[i] + A[i+1]) / 2)
-        average_len_3 = float((A[i] + A[i+1] + A[i+2]) / 3)
+        average_len_2 = (A[i] + A[i+1]) / 2
+        average_len_3 = (A[i] + A[i+1] + A[i+2]) / 3
 
         current_min = min(average_len_2, average_len_3)
         if current_min < min_average:
@@ -70,7 +70,7 @@ def solution(A):
 
     #note: for the last missing case
     #case: avg of length of 2 "A[ len(A)-2 ] + A[ len(A)-1 ]"
-    last_average = float((A[len(A)-2] + A[len(A)-1]) / 2)
+    last_average = (A[len(A)-2] + A[len(A)-1]) / 2
     if last_average < min_average:
         min_average = last_average
         min_position = len(A)-2

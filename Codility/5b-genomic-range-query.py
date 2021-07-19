@@ -57,27 +57,27 @@ Write an efficient algorithm for the following assumptions:
 '''
 
 def solution(S, P, Q):
-    cumulative_A = [0] * ( len(S) +1 )
-    cumulative_C = [0] * ( len(S) +1 )
-    cumulative_G = [0] * ( len(S) +1 )
+    cumulative_A = [0] * ( len(S) + 1 )
+    cumulative_C = [0] * ( len(S) + 1 )
+    cumulative_G = [0] * ( len(S) + 1 )
 
-    for i in range( len(S) ):
+    for i in range(len(S)):
         if S[i] == 'A':
-            cumulative_A[i+1] = cumulative_A[i] + 1
-            cumulative_C[i+1] = cumulative_C[i]
-            cumulative_G[i+1] = cumulative_G[i]
+            cumulative_A[i + 1] = cumulative_A[i] + 1
+            cumulative_C[i + 1] = cumulative_C[i]
+            cumulative_G[i + 1] = cumulative_G[i]
         elif S[i] == 'C':
-            cumulative_A[i+1] = cumulative_A[i]
-            cumulative_C[i+1] = cumulative_C[i] + 1
-            cumulative_G[i+1] = cumulative_G[i]
+            cumulative_A[i + 1] = cumulative_A[i]
+            cumulative_C[i + 1] = cumulative_C[i] + 1
+            cumulative_G[i + 1] = cumulative_G[i]
         elif S[i] == 'G':
-            cumulative_A[i+1] = cumulative_A[i]
-            cumulative_C[i+1] = cumulative_C[i]
-            cumulative_G[i+1] = cumulative_G[i] + 1
+            cumulative_A[i + 1] = cumulative_A[i]
+            cumulative_C[i + 1] = cumulative_C[i]
+            cumulative_G[i + 1] = cumulative_G[i] + 1
         else:
-            cumulative_A[i+1] = cumulative_A[i]
-            cumulative_C[i+1] = cumulative_C[i]
-            cumulative_G[i+1] = cumulative_G[i]
+            cumulative_A[i + 1] = cumulative_A[i]
+            cumulative_C[i + 1] = cumulative_C[i]
+            cumulative_G[i + 1] = cumulative_G[i]
 
     M = len(P) # =len(Q)
     result = [0] * M

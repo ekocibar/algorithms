@@ -49,7 +49,7 @@ Write an efficient algorithm for the following assumptions:
         each element of array A is an integer within the range [−1,000..1,000].
 '''
 import sys
-
+# O(n2)
 def solution(A):
     INT_MAX = sys.maxsize
     min_diff = INT_MAX
@@ -66,4 +66,17 @@ def solution(A):
         current_difference = abs( first_total - second_total)
         min_diff = min(min_diff, current_difference)
 
+    return min_diff
+
+# O(n) %84
+import sys
+def solution2(A):
+    right_side = sum(A)
+    left_side = 0
+    min_diff = sys.maxsize
+
+    for num in A:
+        right_side -= num
+        left_side += num
+        min_diff = min(min_diff, abs(right_side - left_side))
     return min_diff

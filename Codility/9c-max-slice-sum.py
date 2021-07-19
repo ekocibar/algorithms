@@ -29,17 +29,11 @@ Write an efficient algorithm for the following assumptions:
 -each element of array A is an integer within the range [−1,000,000..1,000,000]
 -the result will be an integer within the range [−2,147,483,648..2,147,483,647]
 '''
-import sys
 def solution(A):
-    local_max_sum = A[0]
-    global_max_sum = A[0]
-    for index in range( 1, len(A) ):
-        # be careful about the negative value (we may recount from A[index])
-        local_max_sum = max( local_max_sum + A[index], A[index] )
-        global_max_sum = max( global_max_sum, local_max_sum )
+    current_max = A[0]
+    max_slice_sum = A[0]
 
-    # special case: all negative value(s)
-    if max(A) < 0:
-        global_max_sum = max(A)
-
-    return global_max_sum
+    for num in A[1:]:
+        current_max = max(current_max + num, num)
+        max_slice_sum = max(current_max, max_slice_sum)
+    return max_slice_sum

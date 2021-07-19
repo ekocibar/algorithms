@@ -51,3 +51,11 @@ def solution(A):
             return 0
 
     return 1
+
+# O(n) short (75% needsimprovement)
+def solution2(A):
+    actual_sum = sum(A)
+    n = len(A)
+    supposed_sum = (n*(n+1)) // 2
+
+    return 1 if actual_sum == supposed_sum else 0

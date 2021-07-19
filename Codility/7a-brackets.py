@@ -28,30 +28,26 @@ Write an efficient algorithm for the following assumptions:
         "(", "{", "[", "]", "}" and/or ")".
 '''
 def solution(S):
-    my_stack = []
-    # note: use 'insert(index, item)' and 'pop(index)'
-    for char in S:
-        if char == '{' or char == '[' or char == '(':
-            my_stack.insert( len(my_stack), char)
+    stack = []
 
-        # note: check if the stack is empty or not (be careful)
-        if len(my_stack) == 0:
+    for char in S:
+        if char in '{[(':
+            stack.append(char)
+        elif not stack:
             return 0
-        elif char == ')':
-            pop = my_stack.pop( len(my_stack)-1 )
-            if pop != '(':
-                return 0
-        elif char == ']':
-            pop = my_stack.pop( len(my_stack)-1 )
-            if pop != '[':
-                return 0
         elif char == '}':
-            pop = my_stack.pop( len(my_stack)-1 )
+            pop = stack.pop()
             if pop != '{':
                 return 0
-
-    # note: check if the stack is empty or not (be careful)
-    if len(my_stack)!=0:
+        elif char == ']':
+            pop = stack.pop()
+            if pop != '[':
+                return 0
+        elif char == ')':
+            pop = stack.pop()
+            if pop != '(':
+                return 0
+    if stack:
         return 0
     else:
         return 1

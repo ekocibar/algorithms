@@ -42,3 +42,9 @@ def solution(X, Y, D):
         num_jump_need += 1
 
     return num_jump_need
+
+def solution2(X, Y, D):
+    distance = Y - X
+    num_jump = distance / D
+    whole_num_jump = distance // D
+    return whole_num_jump + 1 if num_jump > whole_num_jump else whole_num_jump

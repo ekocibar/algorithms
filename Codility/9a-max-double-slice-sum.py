@@ -84,17 +84,17 @@ def solution(A):
 
     for index in range( 1, len(A) ):
     # be careful: from i=1 (because of maxLeft[i-1])
-        maxLeft[index] = max(0, maxLeft[index-1]+A[index] );
+        maxLeft[index] = max(0, maxLeft[index-1]+A[index] )
         # golden slice algorithm: max(0, maxLeft[i-1]+A[i] )
 
     # 2) find "maxRight"
     for index in range( len(A)-2, -1, -1 ):
     # be careful: from i=A.length-2 (because of maxLeft[i+1])
-        maxRight[index] = max(0, maxRight[index+1]+A[index] );
+        maxRight[index] = max(0, maxRight[index+1]+A[index] )
         # golden slice algorithm: Math.max(0, maxRight[i+1]+A[i] )
 
     # 3) find the maximum of "maxLeft + maxRight"
-    maxDoubleSlice = A[1] + A[len(A)-2];
+    maxDoubleSlice = A[1] + A[len(A)-2]
     for index in range( 1, len(A)-1 ):
         if (maxLeft[index-1] + maxRight[index+1]) > maxDoubleSlice:
             maxDoubleSlice = maxLeft[index-1] + maxRight[index+1]
